@@ -1,15 +1,34 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const cellSize = 30;
-const maxSize = 30;
+let maxSize = 30;
 let mousePos = vec2.fromValues(innerWidth * 0.25, innerHeight * 0.5);
 let numThingsX;
 let numThingsY;
 let things;
 
+const tekst = document.getElementById("haa");
+
+const ball = document.getElementById('ball');
+ball.addEventListener('click', bollie);
+
+function bollie() {
+    if (maxSize == 30) {
+        maxSize = 1;
+        tekst.style.color = "#ff4550";
+    } else {
+        maxSize = 30;
+        tekst.style.color = "#005557";
+
+    }
+
+    loop()
+}
+
+
 function drawThing(thing) {
   const {pos, radius} = thing;
-  ctx.fillStyle = '#000057';
+  ctx.fillStyle = '#005557';
   ctx.beginPath();
   ctx.arc(pos[0], pos[1], radius, 0, Math.PI * 2);
   ctx.fill();

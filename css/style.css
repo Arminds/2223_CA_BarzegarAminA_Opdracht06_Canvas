@@ -24,6 +24,21 @@
     overflow: hidden;
   }
   :root {
-    --fg: #ff4000;
-    --bg: #000057;
+    --fg: #ff4550;
+    --bg: #005557;
   }
+
+  button{
+      z-index: 99;
+      position: absolute;
+      bottom: 60px;
+      font-size: 2vw;
+      font-weight: 600;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--fg);
+      color: var(--bg);
+      border-radius: 20px;
+      border-color: var(--bg);
+      border: 2px solid;
+  }
+
