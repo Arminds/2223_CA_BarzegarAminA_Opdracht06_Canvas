@@ -8,18 +8,23 @@ let numThingsY;
 let things;
 
 const tekst = document.getElementById("haa");
+const lichaam = document.querySelector('body');
 
 const ball = document.getElementById('ball');
 ball.addEventListener('click', bollie);
 
+let color = '#005557';
 function bollie() {
     if (maxSize == 30) {
-        maxSize = 1;
+        maxSize = 29;
         tekst.style.color = "#ff4550";
+        lichaam.style.background = "#005557";
+        color = '#ff4550'
     } else {
         maxSize = 30;
         tekst.style.color = "#005557";
-
+        lichaam.style.background = "#ff4550";
+        color = '#005557'
     }
 
     loop()
@@ -28,7 +33,7 @@ function bollie() {
 
 function drawThing(thing) {
   const {pos, radius} = thing;
-  ctx.fillStyle = '#005557';
+  ctx.fillStyle = color;
   ctx.beginPath();
   ctx.arc(pos[0], pos[1], radius, 0, Math.PI * 2);
   ctx.fill();
@@ -105,3 +110,6 @@ function throttled(fn) {
 function clamp (value, min = 0, max = 1) {
   return value <= min ? min : value >= max ? max : value;
 }
+
+
+// bron : https://codemyui.com/hover-to-reveal-hidden-text-by-removing-background-with-a-sinkhole-in-a-ball-pit-effect/
